@@ -11,7 +11,10 @@ Include logo/demo screenshot etc.
 <b>Built with</b>
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/en/)
-- [MongoDB](https://docs.mongodb.com/)
+- [PostgreSQL](https://docs.mongodb.com/)
+- [Docker](https://www.docker.com/)
+- [Amazon S3]
+- [Digital Ocean]
 
 ## Features
 What makes your project stand out?
