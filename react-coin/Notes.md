@@ -35,4 +35,9 @@
 * React Lifecycle hooks, or methods which help us run code in particular times during the process
 * Ajax calls done in componentDidMount and componentWillMount which occur after and before rendering
 
-## Ajax with fetch and displaying state 
+## Ajax with fetch and displaying state
+* Popular AJAX libraries are like jQuery
+* fetch to send ajax request, fetch will only be able to detect network issues, however we can use the ok flag
+* root api in one place then import, then use config.js file
+* You have to give a unique key to each child element because it allows React to then identify which items have changed, best way to do this is pick a string that unique. This happens when you are looping through an array an making new children, so to fix this you set the key variable within the div to a unique key
+* &uarr; is up arrow 
