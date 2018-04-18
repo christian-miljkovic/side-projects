@@ -3,7 +3,8 @@ import React from 'react';
 //in curly braces because we didn't export default
 import {handleResponse} from '../../helper';
 import {API_URL} from '../../config';
-import './Table.css';
+import Table from './Table.js';
+import Loading from '../common/Loading.js';
 
 class List extends React.Component{
 
@@ -17,7 +18,7 @@ class List extends React.Component{
       //this will indicate whether to show the loading indicator or the table of numbers
       loading: false,
       currencies: [],
-      error: null,
+      error: 'Something has gone wrong',
     }
   }
 
@@ -40,6 +41,7 @@ class List extends React.Component{
   }
   //we need conditional rendering here because if it is above zero
   //it should be green, and red if below with a new render method
+  //you then call this in the render method doing this.renderChangePercent
   renderChangePercent(percent){
     if(percent > 0){
       return <span className="percent-raised">{percent}% &uarr;</span>
@@ -53,43 +55,23 @@ class List extends React.Component{
   }
 
   render(){
+
+    //if we do this then we can do loading, currencies, error instead
+    //of having to do this.state.loading for example
+    const {loading, error, currencies} = this.state;
+
     if(this.state.loading){
-      return <div>Loading...</div>;
+      return <div className="loading-container"><Loading /></div>;
     }
+
     else{
       //console.log(this.state.currencies);
+      // console.log(this.state.currencies.percentChange24);
       return(
-        <div className="Table-container">
-
-          <table className="Table">
-            <thead className="Table-head">
-              <tr>
-                <th>Cryptocurrency</th>
-                <th>Price</th>
-                <th>Market Cap</th>
-                <th>24H Change</th>
-              </tr>
-            </thead>
-            <tbody className="Table-body">
-              {this.state.currencies.map((currency)=>(
-                //map takes an array and performs a function on it
-                //where currency is a single object looping through the array
-                <tr key={currency.id}>
-                  <td>
-                    <span className="Table-rank">{currency.rank}</span>
-                    {currency.name}
-                  </td>
-                  <td>
-                    <span className="Table-dollar">{currency.price}</span>
-                  </td>
-                  <td>
-                    <span className="Table-dollar">{currency.marketCap}</span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        //this data will now be available to the Table component
+        <Table
+          renderChangePercent={this.renderChangePercent}
+          currencies={currencies}/>
       );
     }
   }

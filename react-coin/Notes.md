@@ -40,4 +40,17 @@
 * fetch to send ajax request, fetch will only be able to detect network issues, however we can use the ok flag
 * root api in one place then import, then use config.js file
 * You have to give a unique key to each child element because it allows React to then identify which items have changed, best way to do this is pick a string that unique. This happens when you are looping through an array an making new children, so to fix this you set the key variable within the div to a unique key
-* &uarr; is up arrow 
+* &uarr; is up arrow
+* When you create a method you then can call it within the render method by doing this.methodName
+* A loading spinner is something that you have to create as a separate component
+* Seems like functional components are the general ones that are only presentational and are common to the entire application, which should then go into common components folder
+* There is a key frame setting for CSS that allows you to make it move
+
+## Props and typechecking with PropTypes
+* We need a way to pass values that are stored on a state to other components within a state
+* props are properties, which you add to a component by adding a custom property within the div of the component
+* to use props within a component you have to pass props within the function of the component when you are first declaring it
+* essentially these are properties that you can pass to components and then use functions or states or whatever information from one component to another
+* props are set by the parent component and are set for
+* React has type checking abilities which allows us to check for bugs as the application grows, typically you have to install these however in this specific application we have them in the package.json
+* These give us validators in order to check if the data is valid 

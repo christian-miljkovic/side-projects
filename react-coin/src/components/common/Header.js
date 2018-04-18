@@ -9,7 +9,7 @@ const containerStyle = {
 const Header = () => {
 
   return (
-    <div style={containerStyle} className="Header">Header</div>
+    <div style={containerStyle} className="Header">Cryptocurrency Prices</div>
   );
 }
 
