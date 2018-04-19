@@ -53,4 +53,13 @@
 * essentially these are properties that you can pass to components and then use functions or states or whatever information from one component to another
 * props are set by the parent component and are set for
 * React has type checking abilities which allows us to check for bugs as the application grows, typically you have to install these however in this specific application we have them in the package.json
-* These give us validators in order to check if the data is valid 
+* These give us validators in order to check if the data is valid
+
+## Handling Events
+* Similar to when you are handling it with dom
+* There is an E6 way of declaring certain variables that are in an object like this.state where instead of having to do this.state.currency you can do const { currency } = this.state the you can use just currency
+* If you have something in a string like a URL in a string 'http:' you can do 'http:${API_URL}'  
+* Paginations require components
+* Remember if it is presentational then you make the React component as a function
+* Div is a block element, span is inline. divs should be used to wrap section of a document, while spans should be used to wrap small portions of text or images
+* <b> is used to bring attention to div 

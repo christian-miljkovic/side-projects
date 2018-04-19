@@ -8,7 +8,7 @@ const Table = (props) => {
 
   //you can do deconstructing by doing
   //then you can remove props
-  //{ currencies, renderChangePercent } = props;
+  //const { currencies, renderChangePercent } = props;
 
   return(
     <div className="Table-container">
