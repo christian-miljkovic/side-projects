@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.css';
 import PropTypes from 'prop-types';
-
+import { withRouter } from 'react-router-dom';
 
 //now props/or currecnies in this case will be available
 const Table = (props) => {
@@ -9,6 +9,7 @@ const Table = (props) => {
   //you can do deconstructing by doing
   //then you can remove props
   //const { currencies, renderChangePercent } = props;
+  const { history } = props;
 
   return(
     <div className="Table-container">
@@ -26,7 +27,7 @@ const Table = (props) => {
           {props.currencies.map((currency)=>(
             //map takes an array and performs a function on it
             //where currency is a single object looping through the array
-            <tr key={currency.id}>
+            <tr key={currency.id} onClick={() => history.push(`/currency/${currency.id}`)}>
               <td>
                 <span className="Table-rank">{currency.rank}</span>
                 {currency.name}
@@ -54,6 +55,7 @@ const Table = (props) => {
 Table.propTypes = {
   currencies: PropTypes.array.isRequired,
   renderChangePercent: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 }
 
-export default Table;
+export default withRouter(Table);

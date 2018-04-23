@@ -62,4 +62,17 @@
 * Paginations require components
 * Remember if it is presentational then you make the React component as a function
 * Div is a block element, span is inline. divs should be used to wrap section of a document, while spans should be used to wrap small portions of text or images
-* <b> is used to bring attention to div 
+* <b> is used to bring attention to div
+* When dealing with eventHandlers, in the case of the component Pagination if you didn't bind the this to the correct object, it wouldn't work and be called right away
+* Bind method creates a new function that when called has its this keyword set to the provided value
+* Bind is used to preserve execution context for a function that executes in another context. Essentially, in the case of the Pagination and List example. Because handlePaginationClick function is created in List.js but passed to Pagination.js, we want the correct this value to be Pagination, not undefined
+
+## React Router
+* Everything is just components, simplifies it a lot
+* We do this in index.js
+* We have to wrap Header component and Switch component because Router component will only return one child, therefore if we want header and switch we must place them all in a div
+* You can pass components to Router components as well, which probably means you can pass components as props
+* you do dynamic path routing by doing :id
+* Link can not be a child of anchor div
+* higher order components is a function that takes component as a parameter and returns a new one with extended functionality or props
+* the push method helps change the URL, that is within the withRouter, which essentially takes the component and wraps it 

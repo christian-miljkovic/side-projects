@@ -23,9 +23,15 @@ class List extends React.Component{
       totalPages: 0,
       page: 1,
     }
+
+    //this.handlePaginationClick = this.handlePaginationClick.bind(this);
   }
 
   componentDidMount(){
+    this.fetchCurrencies();
+  }
+
+  fetchCurrencies(){
     this.setState({loading:true});
 
     const { page } = this.state;
@@ -63,14 +69,22 @@ class List extends React.Component{
 
   //we create this method here because we have to pass the state data
   //to the pagination component through props
-  handlePaginationClick(direction){
+  //by default methods aren't bound by default, therefore when we use this
+  //within the function we don't get to keep the value of the state when we pass the function
+  //through as a prop to Pagination to fix that instead of having just handlePaginationClick(direction) we do
+  handlePaginationClick = (direction) => { //this binds the this value to List object or we can set it in the constructor and bind it there
+
     let nextPage = this.state.page;
 
-    //increment page if the direction === next
+    // Increment nextPage if direction variable is next, otherwise decrement
     nextPage = direction === 'next' ? nextPage + 1 : nextPage - 1;
 
-    //remember you have to set the state using the method
-    this.setState({page : nextPage});
+    this.setState({ page: nextPage }, () => {
+      // call fetchCurrencies function inside setState's callback
+      // because we have to make sure first page state is updated
+      //this is because setState is asynchronous which is why we place it in here 
+      this.fetchCurrencies();
+    });
   }
 
   render(){
