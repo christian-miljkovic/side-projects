@@ -75,4 +75,7 @@
 * you do dynamic path routing by doing :id
 * Link can not be a child of anchor div
 * higher order components is a function that takes component as a parameter and returns a new one with extended functionality or props
-* the push method helps change the URL, that is within the withRouter, which essentially takes the component and wraps it 
+* the push method helps change the URL, that is within the withRouter, which essentially takes the component and wraps it
+* When putting components through as props when using the Route component you can then add other parameters that are then passed to that component
+
+## Working with forms

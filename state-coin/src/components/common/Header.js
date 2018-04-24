@@ -11,10 +11,7 @@ const Header = () => {
 
   return (
     <div style={containerStyle} className="Header">
-      <Link to="/">
-        <img src={logo} alt="logo" className="Header-logo" />
-      </Link>
-      Cryptocurrency Prices
+      <img src={logo} alt="logo" className="Header-logo" />
     </div>
   );
 }
